@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: #fff;
+        --foreground: #231F20;
+        --primary: #231F20;
+        --secondary: #A7A8AC;
+
+        --dot-size: 3px;
+        --dot-size-width: 25px;
+
+        --menu-dot-color: var(--foreground);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply mb-3 font-secondary tracking-wider text-primary;
+    }
+
+    h1 {
+        @apply text-2xl font-bold sm:text-3xl md:text-4xl;
+    }
+
+    h2 {
+        @apply mb-4 text-2xl font-semibold sm:text-left;
+    }
+
+    body {
+        @apply font-primary text-lg leading-5 tracking-normal xl:text-xl;
+    }
+    button {
+        @apply bg-primary;
+    }
+    footer {
+        @apply text-foreground;
+    }
+}
+
+.overlay {
+    @apply absolute inset-0 z-10 bg-black bg-opacity-45;
+}
+
+.divider {
+    @apply my-8 h-[1px] bg-secondary;
+}
+
+/**
+ * ==============================================
+ * Hamburger Menu
+ * ==============================================
+ */
+.menu-wrapper {
+    z-index: 29;
+    @apply fixed left-0 top-0 mt-8 w-full pr-4 md:mt-6 md:pr-5 lg:static lg:w-auto lg:pr-0;
+}
+
+.hamburger-menu {
+    position: relative;
+    z-index: 50;
+}
+
+.hamburger-menu-checkbox {
+    display: none;
+}
+
+.hamburger-menu-label {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    display: block;
+}
+
+.hamburger-menu-label::before,
+.hamburger-menu-label::after {
+    content: '';
+    position: absolute;
+    width: var(--dot-size-width);
+    height: var(--dot-size);
+    border-radius: 10px;
+    background-color: var(--menu-dot-color);
+    transition:
+        top 0.8s,
+        width 0.8s;
+    right: 10px;
+}
+
+.hamburger-menu-label::before {
+    top: 13px; /* top dot */
+}
+
+.hamburger-menu-label::after {
+    top: 27px; /* bottom dot */
+}
+
+.open.hamburger-menu-checkbox ~ .hamburger-menu-label::before,
+.open.hamburger-menu-checkbox ~ .hamburger-menu-label span::before,
+.open.hamburger-menu-checkbox ~ .hamburger-menu-label::after {
+    background-color: var(--background);
+    top: 20px; /* move all icons into the center */
+}
+
+.open.hamburger-menu-checkbox ~ .hamburger-menu-label span::before {
+    width: 26px;
+    right: 7px;
+}
+
+.hamburger-menu-label span::before {
+    content: '';
+    position: absolute;
+    width: var(--dot-size-width);
+    height: var(--dot-size);
+    border-radius: 10px;
+    background-color: var(--menu-dot-color);
+    transition:
+        top 0.8s,
+        width 0.8s,
+        right 0.8s;
+    right: 18px;
+    top: 20px;
+}
+
+/**
+ * ==============================================
+ * Parallax
+ * ==============================================
+ */
+.pContainer {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden !important;
+    @apply md:h-[40vh] lg:h-[60vh] xl:h-[70vh];
+}
+
+.pImageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.pImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pImage-overlay:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.pText-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.enable .animateType {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: normal; /* Keeps the content on a single line */
+    margin: 0 0; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: normal;
+}
+
+/**
+ * ==============================================
+ * Menu Content
+ * ==============================================
+ */
+.menu {
+    position: fixed;
+    z-index: 20;
+}
+
+.menu:before,
+.menu:after {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #94939342;
+    border-bottom-left-radius: 200%;
+    z-index: -1;
+    -webkit-transition:
+        -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.6s,
+        border-radius linear 0.8s;
+    transition:
+        -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.6s,
+        border-radius linear 0.8s;
+    transition:
+        transform cubic-bezier(0.77, 0, 0.175, 1) 0.6s,
+        border-radius linear 0.8s;
+    transition:
+        transform cubic-bezier(0.77, 0, 0.175, 1) 0.6s,
+        -webkit-transform cubic-bezier(0.77, 0, 0.175, 1) 0.6s,
+        border-radius linear 0.8s;
+    -webkit-transform: translateX(100%) translateY(-100%);
+    transform: translateX(100%) translateY(-100%);
+}
+.menu:after {
+    background: var(--foreground);
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+.menu:before {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.menu-content {
+    color: var(--foreground);
+    position: fixed;
+    visibility: hidden;
+    top: 50%;
+    margin-top: 20px;
+    -webkit-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.menu.open .menu-content {
+    visibility: visible;
+    transition: visibility 0.8s;
+    transition-delay: 0.8s;
+}
+
+.menu.open:before,
+.menu.open:after {
+    -webkit-transform: translateX(0%) translateY(0%);
+    transform: translateX(0%) translateY(0%);
+    border-radius: 0;
+}
+.menu.open:after {
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+}
+.menu.open:before {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+/* Swiper */
+.swiper {
+    width: 100% !important;
+    position: relative;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    height: auto;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-custom-navigation svg {
+    @apply bg-transparent text-foreground;
+}
+
+.swiper-custom-navigation.swiper-button-disabled svg,
+.swiper-custom-navigation.swiper-button-disabled:hover {
+    @apply bg-transparent text-secondary;
+}
