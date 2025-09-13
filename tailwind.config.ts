@@ -16,8 +16,8 @@ const config: Config = {
                 secondary: 'var(--secondary)'
             },
             fontFamily: {
-                primary: ['var(--font-josefin-sans)'], //body text, paragraph etc
-                secondary: ['var(--font-oswald)'] //heading etc
+                primary: ['var(--font-open-sans)'], //body text, paragraph etc - Open Sans for readability
+                secondary: ['var(--font-work-sans)'] //heading etc - Work Sans for technical, clean feel
                 // third: ['var(--font-teritary)'],// if you need third font
             }
         }

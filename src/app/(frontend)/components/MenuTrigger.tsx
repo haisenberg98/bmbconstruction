@@ -15,17 +15,15 @@ const NavMenuTrigger = () => {
     };
 
     return (
-        <div className='hamburger-menu flex items-center justify-center'>
-            <input
-                id='hamburger-menu'
-                type='checkbox'
-                className={cn(`hamburger-menu-checkbox`, isOpen && 'open')}
-                onClick={handleOpenMenu}
-            />
-            <label htmlFor='hamburger-menu' className={cn(`hamburger-menu-label`, isOpen && 'open')}>
-                <span></span>
-            </label>
-        </div>
+        <button
+            className={cn('hamburger-btn', isOpen && 'open')}
+            onClick={handleOpenMenu}
+            aria-label="Toggle menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     );
 };
 

@@ -61,69 +61,50 @@
     @apply fixed left-0 top-0 mt-8 w-full pr-4 md:mt-6 md:pr-5 lg:static lg:w-auto lg:pr-0;
 }
 
-.hamburger-menu {
+/* Simple hamburger menu - construction style */
+.hamburger-btn {
     position: relative;
-    z-index: 50;
-}
-
-.hamburger-menu-checkbox {
-    display: none;
-}
-
-.hamburger-menu-label {
+    z-index: 100;
+    width: 40px;
+    height: 30px;
+    background: none;
+    border: none;
     cursor: pointer;
-    width: 45px;
-    height: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.hamburger-btn span {
     display: block;
+    height: 3px;
+    background-color: #231F20;
+    border-radius: 2px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hamburger-menu-label::before,
-.hamburger-menu-label::after {
-    content: '';
-    position: absolute;
-    width: var(--dot-size-width);
-    height: var(--dot-size);
-    border-radius: 10px;
-    background-color: var(--menu-dot-color);
-    transition:
-        top 0.8s,
-        width 0.8s;
-    right: 10px;
+/* Construction philosophy widths */
+.hamburger-btn span:nth-child(1) { width: 18px; } /* Peak */
+.hamburger-btn span:nth-child(2) { width: 24px; } /* Structure */
+.hamburger-btn span:nth-child(3) { width: 30px; } /* Foundation */
+
+/* Perfect X when open */
+.hamburger-btn.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    width: 30px;
+    background-color: white;
 }
 
-.hamburger-menu-label::before {
-    top: 13px; /* top dot */
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
 }
 
-.hamburger-menu-label::after {
-    top: 27px; /* bottom dot */
-}
-
-.open.hamburger-menu-checkbox ~ .hamburger-menu-label::before,
-.open.hamburger-menu-checkbox ~ .hamburger-menu-label span::before,
-.open.hamburger-menu-checkbox ~ .hamburger-menu-label::after {
-    background-color: var(--background);
-    top: 20px; /* move all icons into the center */
-}
-
-.open.hamburger-menu-checkbox ~ .hamburger-menu-label span::before {
-    width: 26px;
-    right: 7px;
-}
-
-.hamburger-menu-label span::before {
-    content: '';
-    position: absolute;
-    width: var(--dot-size-width);
-    height: var(--dot-size);
-    border-radius: 10px;
-    background-color: var(--menu-dot-color);
-    transition:
-        top 0.8s,
-        width 0.8s,
-        right 0.8s;
-    right: 18px;
-    top: 20px;
+.hamburger-btn.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    width: 30px;
+    background-color: white;
 }
 
 /**
