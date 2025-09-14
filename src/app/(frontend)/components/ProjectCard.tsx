@@ -47,7 +47,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                     </Link>
                 ) : (
                     <div className='flex size-full items-center justify-center bg-gray-50'>
-                        <span className='text-sm text-gray-400'>No image availables</span>
+                        <span className='text-sm text-gray-400'>No image available</span>
                     </div>
                 )}
 
