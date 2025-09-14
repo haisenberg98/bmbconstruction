@@ -45,7 +45,7 @@ export default function Footer() {
                         <Link
                             href='tel:0220438005'
                             className='text-lg font-bold hover:underline hover:underline-offset-4'>
-                            022 043 8005s
+                            022 043 8005
                         </Link>
                     </p>
                     {/* <p className='text-sm'>Service Area: Auckland Wide</p> */}
