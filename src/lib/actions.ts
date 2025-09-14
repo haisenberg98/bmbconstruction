@@ -1,7 +1,7 @@
 'use server';
 
 //type
-import { ContactFormFields } from '@/app/(frontend)/(pages)/contact/page';
+import { ContactFormFields } from '@/app/(frontend)/contact/page';
 //components
 import { EmailTemplate } from '@/app/(frontend)/components/EmailTemplate';
 
