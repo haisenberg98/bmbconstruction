@@ -35,7 +35,8 @@ export default function ContactForm() {
     if (status === "error") {
       if (typeof message === "string") toast.error(message);
       else toast.error("An unexpected error occurred");
-      return;
+      
+        return;
     }
 
     if (typeof message === "string") toast.success(message);
