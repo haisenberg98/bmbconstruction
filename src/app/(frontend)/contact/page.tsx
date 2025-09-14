@@ -93,7 +93,7 @@ const ContactPage = () => {
                 className='mb-12'
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
             >
                 Get In Touch with Us
             </motion.h1>
@@ -104,7 +104,8 @@ const ContactPage = () => {
                     <Form {...form}>
                         <form
                             onSubmit={form.handleSubmit((data) => onMyFormSubmit(data))}
-                            className='flex flex-col space-y-6 p-4 md:p-6 lg:p-8'>
+                            className='flex flex-col space-y-6 p-4 md:p-6 lg:p-8'
+                        >
                             {/* form fields */}
                             {formFields.map((item, index) => (
                                 <FormField
@@ -139,7 +140,7 @@ const ContactPage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: 'easeOut' }}
                 >
                     BMB Construction & Services Ltd - Your Auckland construction partner for over 30 years.
                     <br />
@@ -149,8 +150,8 @@ const ContactPage = () => {
 
                 <motion.div
                     className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'
-                    initial="hidden"
-                    whileInView="visible"
+                    initial='hidden'
+                    whileInView='visible'
                     viewport={{ once: true, amount: 0.3 }}
                     variants={{
                         hidden: {},
@@ -166,7 +167,7 @@ const ContactPage = () => {
                             hidden: { opacity: 0, y: 30 },
                             visible: { opacity: 1, y: 0 }
                         }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
                     >
                         <h3 className='mb-3 text-xl font-semibold'>Contact Information</h3>
                         <div className='space-y-2'>
@@ -189,15 +190,15 @@ const ContactPage = () => {
                             hidden: { opacity: 0, y: 30 },
                             visible: { opacity: 1, y: 0 }
                         }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        transition={{ duration: 0.5, ease: 'easeOut' }}
                     >
                         <h3 className='mb-3 text-xl font-semibold'>Our Services</h3>
                         <ul className='space-y-1 text-gray-700'>
-                            <li>• Residential Builds & Renovations</li>
-                            <li>• Kitchen & Bathroom Upgrades</li>
-                            <li>• Villa Restoration & Heritage Homes</li>
-                            <li>• Property Maintenance & Repairs</li>
-                            <li>• Insurance Work & Project Management</li>
+                            <li>�?� Residential Builds & Renovations</li>
+                            <li>�?� Kitchen & Bathroom Upgrades</li>
+                            <li>�?� Villa Restoration & Heritage Homes</li>
+                            <li>�?� Property Maintenance & Repairs</li>
+                            <li>�?� Insurance Work & Project Management</li>
                         </ul>
                     </motion.div>
                 </motion.div>
@@ -207,3 +208,4 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+

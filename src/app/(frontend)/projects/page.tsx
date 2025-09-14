@@ -1,9 +1,9 @@
 import React from 'react';
 
 import ProjectCard from '@/app/(frontend)/components/ProjectCard';
-import ProjectsHeader from '@/app/(frontend)/components/projects/ProjectsHeader';
-import MoreProjectsSection from '@/app/(frontend)/components/projects/MoreProjectsSection';
 import TestimonialSection from '@/app/(frontend)/components/homepage/TestimonialSection';
+import MoreProjectsSection from '@/app/(frontend)/components/projects/MoreProjectsSection';
+import ProjectsHeader from '@/app/(frontend)/components/projects/ProjectsHeader';
 import config from '@payload-config';
 
 import { getPayload } from 'payload';
