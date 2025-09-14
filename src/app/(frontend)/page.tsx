@@ -1,5 +1,5 @@
 import React from 'react';
-
+export const dynamic = "force-dynamic";
 import HeroSection from '@/app/(frontend)/components/homepage/HeroSection';
 import TestimonialSection from '@/app/(frontend)/components/homepage/TestimonialSection';
 import TopThreeProjectSection from '@/app/(frontend)/components/homepage/TopThreeProjects';
