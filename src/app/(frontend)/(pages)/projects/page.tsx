@@ -49,7 +49,7 @@ export default async function ProjectList() {
 
                     {/* Description */}
                     <p className='max-w-3xl opacity-80 sm:text-lg md:text-xl'>
-                        Explore our portfolio of completed projects and see the quality of our work. We take pride in our craftsmanship and strive to exceed our clients' expectations with every project.
+                        Explore our portfolio of completed projects and see the quality of our work. We take pride in our craftsmanship and strive to exceed our clients&apos; expectations with every project.
                     </p>
                 </div>
 
