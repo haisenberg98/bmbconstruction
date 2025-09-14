@@ -18,41 +18,57 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     const firstImage = images && images.length > 0 ? (images[0] as Media) : null;
 
     return (
-        <div className='group relative flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-gray-200'>
+        <div className='group relative overflow-hidden rounded bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'>
             {/* Image Container */}
-            <div className='relative aspect-square w-full overflow-hidden sm:aspect-[4/3] md:aspect-[16/11] lg:aspect-[16/10] xl:aspect-[16/9]'>
+            <div className='relative aspect-[4/3] overflow-hidden'>
                 {firstImage ? (
                     <Link href={`/projects/${slug}`} className='block size-full'>
                         <Image
-                            src={`https://storage.googleapis.com/high-end-builder-bucket-new/${firstImage.filename}`}
+                            src={firstImage.url}
                             alt={firstImage.alt || 'Project Image'}
                             width={1000}
-                            height={900}
-                            className={`size-full transform object-cover transition duration-500 ease-out ${loaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'} group-hover:scale-105`}
+                            height={750}
+                            className={`size-full object-cover transition-all duration-700 ease-out ${loaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'} group-hover:scale-110`}
                             onLoad={() => setLoaded(true)}
                             priority={false}
                         />
-                        <div className='absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10 md:group-hover:opacity-20 lg:group-hover:opacity-25' />
+                        {/* Thin dark overlay */}
+                        <div className='absolute inset-0 bg-black/20'></div>
+                        {/* Gradient overlay */}
+                        <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
                     </Link>
                 ) : (
-                    <div className='flex size-full items-center justify-center'>
-                        <span className='text-xs opacity-60 sm:text-sm md:text-base'>No image available</span>
+                    <div className='flex size-full items-center justify-center bg-gray-50'>
+                        <span className='text-sm text-gray-400'>No image available</span>
                     </div>
                 )}
-            </div>
 
-            {/* Content */}
-            <div className='px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-7 xl:py-8'>
-                <div className='flex items-center justify-between'>
-                    <span className='inline-block text-sm font-medium uppercase tracking-wide opacity-75 md:text-lg md:tracking-wider lg:tracking-widest'>
+                {/* Floating category badge */}
+                <div className='absolute left-4 top-4 z-10'>
+                    <span className='inline-block rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800 shadow-sm backdrop-blur-sm'>
                         {buildingType}
                     </span>
+                </div>
+            </div>
 
-                    <Link
-                        href={`/projects/${slug}`}
-                        className='text-right text-sm font-medium uppercase transition-opacity duration-200 hover:opacity-80 md:text-lg md:font-semibold'>
-                        {title}
-                    </Link>
+            {/* Content Overlay */}
+            <div className='absolute inset-x-0 bottom-0 translate-y-2 p-6 text-white transition-transform duration-300 group-hover:translate-y-0'>
+                <div className='relative pl-2'>
+                    {/* Background blur */}
+                    <div className='absolute inset-0 -m-2 rounded-xl bg-black/40 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100'></div>
+
+                    {/* Content */}
+                    <div className='relative'>
+                        <Link
+                            href={`/projects/${slug}`}
+                            className='block text-xl font-bold leading-tight transition-colors duration-200 hover:text-gray-200 md:text-2xl'>
+                            {title}
+                        </Link>
+                        <div className='mt-2 flex items-center gap-2 opacity-0 transition-all duration-300 group-hover:opacity-100'>
+                            <div className='h-0.5 w-8 bg-white'></div>
+                            <span className='text-sm text-gray-200'>View Project</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

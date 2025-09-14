@@ -16,8 +16,8 @@ const config: Config = {
                 secondary: 'var(--secondary)'
             },
             fontFamily: {
-                primary: ['var(--font-open-sans)'], //body text, paragraph etc - Open Sans for readability
-                secondary: ['var(--font-work-sans)'] //heading etc - Work Sans for technical, clean feel
+                primary: ['var(--font-inter)'], //body text, paragraph etc - Inter for modern readability
+                secondary: ['var(--font-montserrat)'] //heading etc - Montserrat for strong, geometric feel
                 // third: ['var(--font-teritary)'],// if you need third font
             }
         }

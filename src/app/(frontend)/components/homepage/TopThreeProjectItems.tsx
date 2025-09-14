@@ -54,28 +54,28 @@ const TopThreeProjectItems = ({ projects }: { projects: PaginatedDocs<Project> }
                 </div>
 
                 {/* Projects Grid - Visible only on md and larger */}
-                <div className='md:grid md:gap-8'>
+                <div className='md:grid md:gap-12 lg:gap-16'>
                     {/* First project - full width */}
                     {projects.docs[0] && (
-                        <div className='grid-cols-12 gap-8 md:grid'>
-                            <div className='col-span-8 col-start-4'>
+                        <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
+                            <div className='col-span-8 col-start-3 lg:col-span-6 lg:col-start-4'>
                                 <ProjectCard {...projects.docs[0]} />
                             </div>
                         </div>
                     )}
 
                     {/* Second and third projects with staggered layout */}
-                    <div className='relative grid-cols-12 gap-8 md:grid'>
+                    <div className='relative grid-cols-12 gap-8 md:grid lg:gap-12'>
                         {/* Second project */}
                         {projects.docs[1] && (
-                            <div className='col-span-6 lg:col-span-5'>
+                            <div className='col-span-5'>
                                 <ProjectCard {...projects.docs[1]} />
                             </div>
                         )}
 
                         {/* Third project - positioned lower */}
                         {projects.docs[2] && (
-                            <div className='col-span-6 md:grid md:pt-16 lg:col-span-7 lg:pt-24'>
+                            <div className='col-span-6 col-start-7 md:pt-16 lg:pt-20'>
                                 <ProjectCard {...projects.docs[2]} />
                             </div>
                         )}

@@ -19,7 +19,7 @@ const TestimonialCard = ({ name, quote, image, company }: Testimonial) => {
                     {firstImage && firstImage.url && (
                         <div className='relative h-64'>
                             <Image
-                                src={`https://storage.googleapis.com/high-end-builder-bucket-new/${firstImage.filename}`}
+                                src={firstImage.url}
                                 alt={firstImage.alt || 'Testimonial Image'}
                                 style={{ objectFit: 'contain' }}
                                 fill

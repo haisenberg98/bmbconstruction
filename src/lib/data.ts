@@ -1,3 +1,3 @@
 export const parallaxImages = {
-    hero: '/images/hero-image.jpeg'
+    hero: '/images/hero-image.jpg'
 };

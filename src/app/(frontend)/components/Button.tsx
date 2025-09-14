@@ -24,11 +24,11 @@ const Button: React.FC<ButtonProps> = ({
     disabled = false
 }) => {
     // Tailwind CSS classes based on the variant
-    const baseClasses = `px-4 py-2 font-semibold focus:outline-none transition text-background`;
+    const baseClasses = `px-6 py-3 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 text-background shadow-sm`;
     const variantClasses = {
-        primary: 'bg-text-white hover:bg-[#a82a32]',
-        secondary: 'bg-gray-500 text-white hover:bg-gray-600',
-        danger: 'bg-red-500 text-white hover:bg-red-600'
+        primary: 'bg-primary hover:bg-gray-800 focus:ring-gray-500 hover:shadow-md',
+        secondary: 'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-400',
+        danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-400'
     };
 
     return (

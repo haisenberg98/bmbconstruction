@@ -5,9 +5,9 @@
 @layer base {
     :root {
         --background: #fff;
-        --foreground: #231F20;
-        --primary: #231F20;
-        --secondary: #A7A8AC;
+        --foreground: #231f20;
+        --primary: #231f20;
+        --secondary: #a7a8ac;
 
         --dot-size: 3px;
         --dot-size-width: 25px;
@@ -21,19 +21,19 @@
     h4,
     h5,
     h6 {
-        @apply mb-3 font-secondary tracking-wide text-primary;
+        @apply mb-4 font-secondary tracking-tight text-primary;
     }
 
     h1 {
-        @apply text-3xl font-bold sm:text-4xl md:text-5xl;
+        @apply text-4xl font-bold sm:text-5xl md:text-6xl lg:text-6xl;
     }
 
     h2 {
-        @apply mb-4 text-xl font-semibold sm:text-2xl sm:text-left;
+        @apply mb-5 text-2xl font-semibold sm:text-left sm:text-3xl;
     }
 
     body {
-        @apply font-primary text-base leading-6 tracking-normal xl:text-lg;
+        @apply font-primary text-sm leading-relaxed tracking-normal sm:text-base xl:text-lg;
     }
     button {
         @apply bg-primary;
@@ -79,15 +79,21 @@
 .hamburger-btn span {
     display: block;
     height: 3px;
-    background-color: #231F20;
+    background-color: #231f20;
     border-radius: 2px;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Construction philosophy widths */
-.hamburger-btn span:nth-child(1) { width: 18px; } /* Peak */
-.hamburger-btn span:nth-child(2) { width: 24px; } /* Structure */
-.hamburger-btn span:nth-child(3) { width: 30px; } /* Foundation */
+.hamburger-btn span:nth-child(1) {
+    width: 18px;
+} /* Peak */
+.hamburger-btn span:nth-child(2) {
+    width: 24px;
+} /* Structure */
+.hamburger-btn span:nth-child(3) {
+    width: 30px;
+} /* Foundation */
 
 /* Perfect X when open */
 .hamburger-btn.open span:nth-child(1) {
