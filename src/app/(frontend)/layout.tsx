@@ -5,7 +5,7 @@ import { Inter, Montserrat } from "next/font/google";
 import Footer from "@/app/(frontend)/components/Footer";
 import Header from "@/app/(frontend)/components/Header";
 import "@/app/(frontend)/globals.css";
-
+export const dynamic = "force-dynamic";
 import { ClientToaster } from "@/app/(frontend)/components/ClientToaster"; // ← use client wrapper
 
 const inter = Inter({
