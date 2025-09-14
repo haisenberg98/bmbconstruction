@@ -9,23 +9,37 @@ const values = [
     },
     {
         title: 'Reliability',
-        description: 'Completing projects on time and within budget, with a two-year general defects guarantee for peace of mind.'
+        description:
+            'Completing projects on time and within budget, with a two-year general defects guarantee for peace of mind.'
     },
     {
         title: 'Client-Focused',
-        description: 'Tailoring solutions and maintaining a personal approach, ensuring each project meets your unique needs.'
+        description:
+            'Tailoring solutions and maintaining a personal approach, ensuring each project meets your unique needs.'
     }
 ];
 
 export default function ValuesSection() {
     return (
-        <section id='our-values' className='container mx-auto my-12 lg:max-w-6xl'>
-            <h2 className='mb-4 text-2xl font-semibold'>Our Values</h2>
-            <div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
+        <section className='py-32'>
+            {/* Section Header */}
+            <div className='mb-16 text-center'>
+                <h1 className='mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Values</h1>
+                <p className='mx-auto max-w-3xl text-lg text-primary md:text-xl'>
+                    The principles that guide every project and define our commitment to excellence.
+                </p>
+            </div>
+
+            {/* Values Grid */}
+            <div className='grid gap-8 md:grid-cols-2 lg:gap-12'>
                 {values.map((value, index) => (
-                    <div key={index} className='flex h-full flex-col bg-secondary p-4 shadow-md xl:min-h-28'>
-                        <h3 className='mb-2 text-center font-semibold'>{value.title}</h3>
-                        <p className='flex-grow text-center text-lg'>{value.description}</p>
+                    <div
+                        key={index}
+                        className='group rounded-lg border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-gray-200 hover:shadow-lg'>
+                        <div className='mb-6'>
+                            <h3 className='text-xl font-semibold text-primary md:text-2xl'>{value.title}</h3>
+                        </div>
+                        <p className='text-lg leading-relaxed text-gray-700'>{value.description}</p>
                     </div>
                 ))}
             </div>

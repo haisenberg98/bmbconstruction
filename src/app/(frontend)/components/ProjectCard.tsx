@@ -18,7 +18,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     const firstImage = images && images.length > 0 ? (images[0] as Media) : null;
 
     return (
-        <div className='group relative overflow-hidden rounded bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'>
+        <div className='group relative overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'>
             {/* Image Container */}
             <div className='relative aspect-[4/3] overflow-hidden'>
                 {firstImage ? (
@@ -55,7 +55,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
             <div className='absolute inset-x-0 bottom-0 translate-y-2 p-6 text-white transition-transform duration-300 group-hover:translate-y-0'>
                 <div className='relative pl-2'>
                     {/* Background blur */}
-                    <div className='absolute inset-0 -m-2 rounded-xl bg-black/40 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100'></div>
+                    <div className='absolute inset-0 -m-2 rounded-lg bg-black/40 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100'></div>
 
                     {/* Content */}
                     <div className='relative'>

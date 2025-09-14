@@ -18,6 +18,9 @@ export default async function ProjectList() {
         sort: '-created_at'
     });
 
+    const firstThree = projects.docs.slice(0, 3);
+    const rest = projects.docs.slice(3);
+
     return (
         <main id='projects-page' className='mb-12 px-4 xl:container md:px-8 lg:px-12 xl:mx-auto xl:px-0'>
             <div className='mb-12 w-full pt-8'>
@@ -48,8 +51,8 @@ export default async function ProjectList() {
                         </Link>
                     </div>
 
-                    {/* Mobile and tablet view */}
-                    <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:hidden lg:hidden'>
+                    {/* Mobile and tablet: simple responsive grid */}
+                    <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:hidden'>
                         {projects.docs.map((project) => (
                             <div key={project.id} className='transition-transform duration-500'>
                                 <ProjectCard {...project} />
@@ -57,35 +60,46 @@ export default async function ProjectList() {
                         ))}
                     </div>
 
-                    {/* Large screen view */}
-                    <div className='hidden gap-8 md:grid lg:grid'>
-                        {projects.docs.map((project, index) => {
-                            const groupPosition = index % 3;
+                    {/* Desktop: copy homepage layout for first three */}
+                    <div className='hidden md:grid md:gap-12 lg:gap-16'>
+                        {/* First item centered */}
+                        {firstThree[0] && (
+                            <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
+                                <div className='col-span-8 col-start-3 lg:col-span-6 lg:col-start-4'>
+                                    <ProjectCard {...firstThree[0]} />
+                                </div>
+                            </div>
+                        )}
 
-                            if (groupPosition === 0) {
-                                return (
-                                    <div key={project.id} className='grid grid-cols-12 gap-8'>
-                                        <div className='col-span-8 col-start-2 transition-transform duration-500'>
+                        {/* Second and third staggered like homepage */}
+                        {(firstThree[1] || firstThree[2]) && (
+                            <div className='grid-cols-12 gap-8 md:grid lg:gap-12'>
+                                {firstThree[1] && (
+                                    <div className='col-span-5'>
+                                        <ProjectCard {...firstThree[1]} />
+                                    </div>
+                                )}
+                                {firstThree[2] && (
+                                    <div className='col-span-6 col-start-7 md:pt-16 lg:pt-20'>
+                                        <ProjectCard {...firstThree[2]} />
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {/* If more than 3, show a clean grid for the rest */}
+                        {rest.length > 0 && (
+                            <div className='mt-4'>
+                                <h2 className='mb-6 text-2xl font-semibold'>More Projects</h2>
+                                <div className='grid grid-cols-12 gap-8'>
+                                    {rest.map((project) => (
+                                        <div key={project.id} className='col-span-6 lg:col-span-4'>
                                             <ProjectCard {...project} />
                                         </div>
-                                        <div className='col-span-12 grid grid-cols-12 gap-8'>
-                                            {projects.docs[index + 1] && (
-                                                <div className='col-span-5 transition-transform duration-500'>
-                                                    <ProjectCard {...projects.docs[index + 1]} />
-                                                </div>
-                                            )}
-                                            {projects.docs[index + 2] && (
-                                                <div className='col-span-7 transition-transform duration-500'>
-                                                    <ProjectCard {...projects.docs[index + 2]} />
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                );
-                            }
-
-                            return null;
-                        })}
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

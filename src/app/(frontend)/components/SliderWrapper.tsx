@@ -32,7 +32,7 @@ const SliderWrapper = ({
     let autoplayOn;
     if (autoPlay) {
         autoplayOn = {
-            delay: 2500,
+            delay: 3500,
             disableOnInteraction: false
         };
     }
