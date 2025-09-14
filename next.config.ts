@@ -10,6 +10,9 @@ const withBundleAnalyzer = initializeBundleAnalyzer({
 
 // https://nextjs.org/docs/pages/api-reference/next-config-js
 const nextConfig: NextConfig = {
+    experimental: {
+        serverComponentsExternalPackages: ['framer-motion', 'motion-dom', 'motion-utils']
+    },
     images: {
         // domains: ['localhost'],
         remotePatterns: [
