@@ -1,12 +1,14 @@
-'use server';
+import { z } from 'zod';
+import type { ReactElement } from 'react';
+import { Resend } from 'resend';
 
-//type
-import { ContactFormFields } from '@/app/(frontend)/contact/page';
-//components
+// Use the same schema on server for validation and type inference
+import { contactFormSchema } from '@/lib/schema';
+// Make sure this template is SERVER-SAFE (no hooks, no "use client")
 import { EmailTemplate } from '@/app/(frontend)/components/EmailTemplate';
 
-import { Resend } from 'resend';
-import { z } from 'zod';
+// ✅ Infer the form type here (do NOT import types from a page/client file)
+export type ContactFormFields = z.infer<typeof contactFormSchema>;
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
