@@ -1,6 +1,8 @@
 import ContactForm from "@/app/(frontend)/components/ContactForm";
 import ContactInfo from "@/app/(frontend)/components/ContactInfo";
 
+export const dynamic = "force-dynamic";
+
 export default function ContactPage() {
   return (
     <main id="contact-page" className="mb-12 px-4 xl:container md:px-8 xl:mx-auto xl:px-0">
