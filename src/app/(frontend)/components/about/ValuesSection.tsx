@@ -25,7 +25,7 @@ export default function ValuesSection() {
             {/* Section Header */}
             <div className='mb-16 text-center'>
                 <h1 className='mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Values</h1>
-                <p className='mx-auto max-w-3xl text-lg text-primary md:text-xl'>
+                <p className='mx-auto max-w-3xl text-lg md:text-xl'>
                     The principles that guide every project and define our commitment to excellence.
                 </p>
             </div>
@@ -39,7 +39,7 @@ export default function ValuesSection() {
                         <div className='mb-6'>
                             <h3 className='text-xl font-semibold text-primary md:text-2xl'>{value.title}</h3>
                         </div>
-                        <p className='text-lg leading-relaxed text-gray-700'>{value.description}</p>
+                        <p className='text-lg leading-relaxed'>{value.description}</p>
                     </div>
                 ))}
             </div>

@@ -18,7 +18,7 @@ const TestimonialSliders = ({ testimonials }: { testimonials: PaginatedDocs<Test
             {/* Section Header */}
             <div className='mb-12 text-center'>
                 <h2 className='mb-4 text-3xl font-bold text-primary md:text-4xl'>Client Testimonials</h2>
-                <p className='mx-auto max-w-xl text-primary'>
+                <p className='mx-auto max-w-xl'>
                     Hear what our satisfied clients have to say about their experience working with us.
                 </p>
             </div>

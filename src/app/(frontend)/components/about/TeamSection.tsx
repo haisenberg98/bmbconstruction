@@ -8,7 +8,7 @@ const TeamSection = () => {
             {/* Section Header */}
             <div className='mb-16 text-center'>
                 <h1 className='mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Meet Our Team</h1>
-                <p className='mx-auto max-w-3xl text-lg text-primary md:text-xl'>
+                <p className='mx-auto max-w-3xl text-lg md:text-xl'>
                     The dedicated professionals behind every successful project, bringing decades of experience and
                     passion to your construction needs.
                 </p>

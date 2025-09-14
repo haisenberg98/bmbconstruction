@@ -10,7 +10,7 @@ export default function Footer() {
                             BMB <span className='text-primary'>CONSTRUCTION</span>
                         </h2>
                     </Link>
-                    <p className='text-sm font-medium text-primary'>One call, one solution</p>
+                    <p className='text-sm font-medium'>One call, one solution</p>
 
                     <nav className='my-6'>
                         <ul className='flex flex-col space-y-2 text-lg font-bold'>
