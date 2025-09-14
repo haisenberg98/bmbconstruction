@@ -154,7 +154,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                         <h3 className='mb-3 text-xl font-semibold'>Our Services</h3>
-                        <ul className='space-y-1'>
+                        <ul className='space-y-1 text-gray-700'>
                             <li>• Residential Builds & Renovations</li>
                             <li>• Kitchen & Bathroom Upgrades</li>
                             <li>• Villa Restoration & Heritage Homes</li>

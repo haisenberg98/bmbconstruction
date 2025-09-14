@@ -20,7 +20,7 @@ const NavMenuContent = () => {
         <nav className={cn('menu', isOpen && 'open')}>
             <div className='menu-content flex h-full flex-col items-center justify-center'>
                 {/* menu */}
-                <ul className='flex flex-col items-center justify-center space-y-8 text-3xl text-background'>
+                <ul className='flex flex-col items-center justify-center space-y-8 text-3xl !text-background'>
                     <li>
                         <Link
                             href='/projects'

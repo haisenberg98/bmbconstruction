@@ -33,7 +33,7 @@ export default function Footer() {
                     </nav>
                 </div>
                 <div className='space-y-2 pt-10 md:pt-0'>
-                    <p className='mb-4 text-xl font-semibold'>BMB Construction & Services Ltd</p>
+                    <h4 className='mb-4 text-xl font-semibold'>BMB Construction & Services Ltd</h4>
                     <p>
                         <Link
                             href='mailto:johnny@bmbconstruction.co.nz'

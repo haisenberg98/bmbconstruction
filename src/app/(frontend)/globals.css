@@ -62,7 +62,7 @@
 .menu-wrapper {
     z-index: 29;
     /* Use explicit top offset for precise vertical placement on mobile */
-    @apply fixed right-0 top-12 flex w-full justify-end pr-4 md:top-12 md:pr-6 lg:static lg:mt-6 lg:w-auto lg:pr-0;
+    @apply fixed right-0 top-12 flex w-full justify-end pr-4 md:top-12 md:pr-6 lg:static lg:mt-4 lg:w-auto lg:pr-0;
 }
 
 /* Simple hamburger menu - construction style */
