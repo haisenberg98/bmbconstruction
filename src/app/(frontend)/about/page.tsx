@@ -1,6 +1,5 @@
 import React from 'react';
 
-import AboutHeroSection from '@/app/(frontend)/components/about/AboutHeroSection';
 import AboutStorySection from '@/app/(frontend)/components/about/AboutStorySection';
 import TeamSection from '@/app/(frontend)/components/about/TeamSection';
 import ValuesSection from '@/app/(frontend)/components/about/ValuesSection';
