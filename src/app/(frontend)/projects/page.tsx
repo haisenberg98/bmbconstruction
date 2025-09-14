@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-
 import ProjectCard from '@/app/(frontend)/components/ProjectCard';
+import ProjectsHeader from '@/app/(frontend)/components/projects/ProjectsHeader';
+import MoreProjectsSection from '@/app/(frontend)/components/projects/MoreProjectsSection';
 import TestimonialSection from '@/app/(frontend)/components/homepage/TestimonialSection';
 import config from '@payload-config';
 
@@ -25,44 +24,7 @@ export default async function ProjectList() {
     return (
         <main className='mb-12 px-4 xl:container md:px-8 lg:px-12 xl:mx-auto xl:px-0'>
             <div className='pt-12'>
-                <div className='mb-6 flex flex-col space-y-4 sm:mb-8 sm:space-y-6'>
-                    {/* Title and Back Link */}
-                    <motion.div
-                        className='flex items-center justify-between'
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <h1 className='text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Projects</h1>
-                        <Link
-                            href='/'
-                            className='group inline-flex items-center text-lg font-semibold underline-offset-4 hover:underline hover:opacity-80'>
-                            <svg
-                                className='mr-2 size-4 transform transition-transform duration-200 group-hover:-translate-x-1'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                stroke='currentColor'>
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    strokeWidth={2}
-                                    d='M10 19l-7-7m0 0l7-7m-7 7h18'
-                                />
-                            </svg>
-                            Back
-                        </Link>
-                    </motion.div>
-
-                    {/* Description */}
-                    <motion.p
-                        className='max-w-3xl opacity-80 sm:text-lg md:text-xl'
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    >
-                        Explore our portfolio of completed projects and see the quality of our work. We take pride in our craftsmanship and strive to exceed our clients&apos; expectations with every project.
-                    </motion.p>
-                </div>
+                <ProjectsHeader />
 
                 {/* Mobile and tablet: simple responsive grid */}
                 <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 md:hidden'>
@@ -75,63 +37,46 @@ export default async function ProjectList() {
 
                 {/* Desktop: copy homepage layout for first three */}
                 <div className='hidden md:grid md:gap-12 lg:gap-16'>
-                        {/* First item centered */}
-                        {firstThree[0] && (
-                            <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
-                                <div className='col-span-8 col-start-3 lg:col-span-6 lg:col-start-4'>
-                                    <ProjectCard {...firstThree[0]} />
-                                </div>
+                    {/* First item centered */}
+                    {firstThree[0] && (
+                        <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
+                            <div className='col-span-8 col-start-3 lg:col-span-6 lg:col-start-4'>
+                                <ProjectCard {...firstThree[0]} />
                             </div>
-                        )}
+                        </div>
+                    )}
 
-                        {/* Second and third staggered like homepage */}
-                        {(firstThree[1] || firstThree[2]) && (
-                            <div className='grid-cols-12 gap-8 md:grid lg:gap-12'>
-                                {firstThree[1] && (
-                                    <div className='col-span-5'>
-                                        <ProjectCard {...firstThree[1]} />
-                                    </div>
-                                )}
-                                {firstThree[2] && (
-                                    <div className='col-span-6 col-start-7 md:pt-16 lg:pt-20'>
-                                        <ProjectCard {...firstThree[2]} />
-                                    </div>
-                                )}
-                            </div>
-                        )}
+                    {/* Second and third staggered like homepage */}
+                    {(firstThree[1] || firstThree[2]) && (
+                        <div className='grid-cols-12 gap-8 md:grid lg:gap-12'>
+                            {firstThree[1] && (
+                                <div className='col-span-5'>
+                                    <ProjectCard {...firstThree[1]} />
+                                </div>
+                            )}
+                            {firstThree[2] && (
+                                <div className='col-span-6 col-start-7 md:pt-16 lg:pt-20'>
+                                    <ProjectCard {...firstThree[2]} />
+                                </div>
+                            )}
+                        </div>
+                    )}
 
-                        {/* If more than 3, show a clean grid for the rest */}
-                        {rest.length > 0 && (
-                            <div className='mt-16'>
-                                <div className='mb-8 text-center'>
-                                    <motion.h2
-                                        className='text-3xl font-bold text-primary md:text-4xl'
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.5 }}
-                                        transition={{ duration: 0.6, ease: "easeOut" }}
-                                    >
-                                        More Projects
-                                    </motion.h2>
-                                    <motion.p
-                                        className='mt-4 text-lg opacity-80'
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.5 }}
-                                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                                    >
-                                        Discover more of our exceptional construction work
-                                    </motion.p>
-                                </div>
-                                <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-                                    {rest.map((project) => (
-                                        <div key={project.id} className='transition-transform duration-300 hover:scale-[1.02]'>
-                                            <ProjectCard {...project} />
-                                        </div>
-                                    ))}
-                                </div>
+                    {/* If more than 3, show a clean grid for the rest */}
+                    {rest.length > 0 && (
+                        <div className='mt-16'>
+                            <MoreProjectsSection />
+                            <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
+                                {rest.map((project) => (
+                                    <div
+                                        key={project.id}
+                                        className='transition-transform duration-300 hover:scale-[1.02]'>
+                                        <ProjectCard {...project} />
+                                    </div>
+                                ))}
                             </div>
-                        )}
+                        </div>
+                    )}
                 </div>
             </div>
             <TestimonialSection />
