@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import React from 'react';
 
 // import AboutStorySection from '@/app/(frontend)/components/about/AboutStorySection';
