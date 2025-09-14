@@ -53,8 +53,17 @@ const TopThreeProjectItems = ({ projects }: { projects: PaginatedDocs<Project> }
                     </p>
                 </div>
 
-                {/* Projects Grid - Visible only on md and larger */}
-                <div className='md:grid md:gap-12 lg:gap-16'>
+                {/* Mobile Projects Grid */}
+                <div className='space-y-8 md:hidden'>
+                    {projects.docs.slice(0, 3).map((project, index) => (
+                        <div key={project.id}>
+                            <ProjectCard {...project} />
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop Projects Grid - Visible only on md and larger */}
+                <div className='hidden md:grid md:gap-12 lg:gap-16'>
                     {/* First project - full width */}
                     {projects.docs[0] && (
                         <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
