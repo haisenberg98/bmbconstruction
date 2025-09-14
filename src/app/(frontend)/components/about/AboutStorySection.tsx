@@ -1,23 +1,21 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import Image from 'next/image';
 
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const AboutStorySection = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);
-    const contentRefs = useRef<HTMLDivElement[]>([]);
 
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        const ctx = gsap.context(() => {
+    useGSAP(
+        () => {
             // Header animation
             gsap.fromTo(
                 headingRef.current,
@@ -36,36 +34,28 @@ const AboutStorySection = () => {
             );
 
             // Content sections staggered animation
-            contentRefs.current.forEach((ref, index) => {
-                if (ref) {
-                    gsap.fromTo(
-                        ref,
-                        { opacity: 0, y: 30 },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            duration: 0.6,
-                            delay: index * 0.2,
-                            ease: 'power2.out',
-                            scrollTrigger: {
-                                trigger: ref,
-                                start: 'top 85%',
-                                once: true
-                            }
+            const items = gsap.utils.toArray<HTMLElement>('.about-item');
+            items.forEach((el, index) => {
+                gsap.fromTo(
+                    el,
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.6,
+                        delay: index * 0.2,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            once: true
                         }
-                    );
-                }
+                    }
+                );
             });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
-    const addToRefs = (el: HTMLDivElement) => {
-        if (el && !contentRefs.current.includes(el)) {
-            contentRefs.current.push(el);
-        }
-    };
+        },
+        { scope: sectionRef }
+    );
 
     return (
         <section ref={sectionRef}>
@@ -82,7 +72,7 @@ const AboutStorySection = () => {
             {/* Story Content */}
             <div className='mx-auto max-w-6xl'>
                 <div className='space-y-12'>
-                    <div ref={addToRefs}>
+                    <div className='about-item'>
                         <h2 className='mb-4 text-2xl font-bold text-primary md:text-3xl'>
                             Over 30 Years of Excellence
                         </h2>
@@ -93,7 +83,7 @@ const AboutStorySection = () => {
                         </p>
                     </div>
 
-                    <div ref={addToRefs}>
+                    <div className='about-item'>
                         <h3 className='mb-4 text-xl font-semibold text-primary'>One Call, One Solution</h3>
                         <p className='text-lg leading-relaxed'>
                             We are committed to providing a &quot;one call, one solution&quot; approach for all your
@@ -102,7 +92,7 @@ const AboutStorySection = () => {
                         </p>
                     </div>
 
-                    <div ref={addToRefs}>
+                    <div className='about-item'>
                         <h3 className='mb-4 text-xl font-semibold text-primary'>Personal Service</h3>
                         <p className='text-lg leading-relaxed'>
                             Our team delivers smart design, thorough project management, and personal service that is
