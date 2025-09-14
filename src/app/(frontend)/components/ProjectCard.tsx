@@ -4,9 +4,10 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 import { Project } from '@/payload-types';
+
+import { motion } from 'framer-motion';
 
 interface Media {
     url: string;
@@ -24,7 +25,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             whileHover={{ y: -8 }}>
             {/* Image Container */}
             <div className='relative aspect-[4/3] overflow-hidden'>
@@ -46,13 +47,15 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                     </Link>
                 ) : (
                     <div className='flex size-full items-center justify-center bg-gray-50'>
-                        <span className='text-sm text-gray-400'>No image available</span>
+                        <span className='text-sm text-gray-400'>No image availables</span>
                     </div>
                 )}
 
                 {/* Floating category badge */}
                 <div className='absolute left-4 top-4 z-10'>
-                    <span className='inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm' style={{backgroundColor: 'rgba(49, 33, 37, 0.6)'}}>
+                    <span
+                        className='inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm'
+                        style={{ backgroundColor: 'rgba(49, 33, 37, 0.6)' }}>
                         {buildingType}
                     </span>
                 </div>
