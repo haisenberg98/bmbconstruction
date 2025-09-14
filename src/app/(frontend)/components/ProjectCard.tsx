@@ -18,7 +18,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     const firstImage = images && images.length > 0 ? (images[0] as Media) : null;
 
     return (
-        <div className='group relative flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-md'>
+        <div className='group relative flex h-full flex-col overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-gray-200'>
             {/* Image Container */}
             <div className='relative aspect-square w-full overflow-hidden sm:aspect-[4/3] md:aspect-[16/11] lg:aspect-[16/10] xl:aspect-[16/9]'>
                 {firstImage ? (
@@ -42,7 +42,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
             </div>
 
             {/* Content */}
-            <div className='py-3 md:py-3 lg:py-6 xl:py-7'>
+            <div className='px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-7 xl:py-8'>
                 <div className='flex items-center justify-between'>
                     <span className='inline-block text-sm font-medium uppercase tracking-wide opacity-75 md:text-lg md:tracking-wider lg:tracking-widest'>
                         {buildingType}

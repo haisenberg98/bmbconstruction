@@ -54,7 +54,7 @@ const ParallaxSection = ({
                 <div className='flex flex-col md:justify-center lg:w-full lg:justify-end'>
                     {/* <h1 className='text-foreground'>{parallaxTextTitle}</h1> */}
 
-                    <p className='mx-auto md:flex md:w-3/4 md:justify-center lg:mt-0 lg:w-1/2'>
+                    <p className='mx-auto text-background md:flex md:w-3/4 md:justify-center lg:mt-0 lg:w-1/2'>
                         {parallaxTextParagraph || ''}
                     </p>
                     <div className='flex justify-center'>

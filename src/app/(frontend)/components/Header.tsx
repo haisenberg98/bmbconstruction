@@ -7,7 +7,7 @@ import MenuContent from '@/app/(frontend)/components/MenuContent';
 const Header = () => {
     return (
         <>
-            <header className='header flex justify-between px-4 pb-16 pt-6 xl:container md:px-8 xl:mx-auto xl:px-0'>
+            <header className='header flex justify-between px-6 pb-20 pt-8 xl:container md:px-10 xl:mx-auto xl:px-0'>
                 <Logo />
                 <Menu />
             </header>

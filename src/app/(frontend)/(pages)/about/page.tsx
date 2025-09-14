@@ -9,9 +9,10 @@ export default function AboutPage() {
             id='about-page'
             className='mb-12 px-4 py-6 xl:container md:px-8 lg:space-y-16 lg:px-12 xl:mx-auto xl:space-y-24 xl:px-0'>
             <p>
-                BMB Construction and Services Ltd is an Auckland-based company with over 30 years of combined trade experience, 
-                known for delivering high-quality workmanship and reliable service in the construction, renovation, and property 
-                maintenance sector. We are committed to providing a "one call, one solution" approach for all your building needs.
+                BMB Construction and Services Ltd is an Auckland-based company with over 30 years of combined trade
+                experience, known for delivering high-quality workmanship and reliable service in the construction,
+                renovation, and property maintenance sector. We are committed to providing a &quot;one call, one
+                solution&quot; approach for all your building needs.
             </p>
 
             <section

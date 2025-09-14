@@ -21,19 +21,19 @@
     h4,
     h5,
     h6 {
-        @apply mb-3 font-secondary tracking-wider text-primary;
+        @apply mb-3 font-secondary tracking-wide text-primary;
     }
 
     h1 {
-        @apply text-2xl font-bold sm:text-3xl md:text-4xl;
+        @apply text-3xl font-bold sm:text-4xl md:text-5xl;
     }
 
     h2 {
-        @apply mb-4 text-2xl font-semibold sm:text-left;
+        @apply mb-4 text-xl font-semibold sm:text-2xl sm:text-left;
     }
 
     body {
-        @apply font-primary text-lg leading-5 tracking-normal xl:text-xl;
+        @apply font-primary text-base leading-6 tracking-normal xl:text-lg;
     }
     button {
         @apply bg-primary;
@@ -48,7 +48,7 @@
 }
 
 .divider {
-    @apply my-8 h-[1px] bg-secondary;
+    @apply my-12 h-[2px] bg-gradient-to-r from-transparent via-secondary to-transparent;
 }
 
 /**

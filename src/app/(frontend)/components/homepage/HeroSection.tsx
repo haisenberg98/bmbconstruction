@@ -26,9 +26,11 @@ const HeroSection = () => {
                         parallaxRef={parallaxRef}
                         parallaxTextParagraph={
                             <>
-                                BMB Construction and Services Ltd - Auckland's trusted construction partner with over 30 years of combined trade experience.
+                                BMB Construction and Services Ltd - Auckland&apos;s trusted construction partner with
+                                over 30 years of combined trade experience.
                                 <br />
-                                One call, one solution for all your building, renovation, and property maintenance needs.
+                                One call, one solution for all your building, renovation, and property maintenance
+                                needs.
                             </>
                         }
                     />

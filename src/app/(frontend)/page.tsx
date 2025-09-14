@@ -6,7 +6,7 @@ import TopThreeProjectSection from '@/app/(frontend)/components/homepage/TopThre
 
 const HomePage = () => {
     return (
-        <main className='mb-12 px-4 xl:container md:px-8 lg:px-12 xl:mx-auto xl:px-0'>
+        <main className='mb-16 px-6 xl:container md:px-10 lg:px-16 xl:mx-auto xl:px-0'>
             <HeroSection />
             <TopThreeProjectSection />
             <TestimonialSection />
