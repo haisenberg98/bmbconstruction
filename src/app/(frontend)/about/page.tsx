@@ -1,10 +1,8 @@
-
-
 import React from 'react';
 
-import AboutStorySection from '@/app/(frontend)/components/about/AboutStorySection';
-import TeamSection from '@/app/(frontend)/components/about/TeamSection';
-import ValuesSection from '@/app/(frontend)/components/about/ValuesSection';
+// import AboutStorySection from '@/app/(frontend)/components/about/AboutStorySection';
+// import TeamSection from '@/app/(frontend)/components/about/TeamSection';
+// import ValuesSection from '@/app/(frontend)/components/about/ValuesSection';
 
 export default function AboutPage() {
     return (
