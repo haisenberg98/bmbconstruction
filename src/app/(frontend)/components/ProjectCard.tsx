@@ -45,7 +45,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
 
                 {/* Floating category badge */}
                 <div className='absolute left-4 top-4 z-10'>
-                    <span className='inline-block rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-background shadow-sm backdrop-blur-sm'>
+                    <span className='inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white shadow-sm backdrop-blur-sm' style={{backgroundColor: 'rgba(49, 33, 37, 0.6)'}}>
                         {buildingType}
                     </span>
                 </div>
