@@ -13,6 +13,7 @@ import ProjectCard from '@/app/(frontend)/components/ProjectCard';
 // types
 import { Project } from '@/payload-types';
 
+import { motion } from 'framer-motion';
 // eslint-disable-next-line import/named
 import { PaginatedDocs } from 'payload';
 
@@ -22,10 +23,16 @@ const TopThreeProjectItems = ({ projects }: { projects: PaginatedDocs<Project> }
 
     return (
         <>
-            <div className='pt-12'>
+            <div className='pt-32'>
                 <div className='mb-6 flex flex-col space-y-4 sm:mb-8 sm:space-y-6'>
                     {/* Title and View More Link */}
-                    <div className='flex items-center justify-between'>
+                    <motion.div
+                        className='flex items-center justify-between'
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <h1>Projects</h1>
                         <Link
                             href='/projects'
@@ -44,23 +51,47 @@ const TopThreeProjectItems = ({ projects }: { projects: PaginatedDocs<Project> }
                                 />
                             </svg>
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Description */}
-                    <p className='max-w-3xl opacity-80 sm:text-lg md:text-xl'>
+                    <motion.p
+                        className='max-w-3xl opacity-80 sm:text-lg md:text-xl'
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    >
                         This is a list of projects that we have worked on. We are proud of the work we have done and the
                         relationships we have built with our clients.
-                    </p>
+                    </motion.p>
                 </div>
 
                 {/* Mobile Projects Grid */}
-                <div className='space-y-8 md:hidden'>
+                <motion.div
+                    className='space-y-8 md:hidden'
+                    initial='hidden'
+                    whileInView='visible'
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        }
+                    }}>
                     {projects.docs.slice(0, 3).map((project, index) => (
-                        <div key={project.id}>
+                        <motion.div
+                            key={project.id}
+                            variants={{
+                                hidden: { opacity: 0, y: 30 },
+                                visible: { opacity: 1, y: 0 }
+                            }}
+                            transition={{ duration: 0.5, ease: 'easeOut' }}>
                             <ProjectCard {...project} />
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Desktop Projects Grid - Visible only on md and larger */}
                 <div className='hidden md:grid md:gap-12 lg:gap-16'>

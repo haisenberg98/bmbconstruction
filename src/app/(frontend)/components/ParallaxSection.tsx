@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 import Button from '@/app/(frontend)/components/Button';
 //animations
@@ -54,12 +55,22 @@ const ParallaxSection = ({
                 <div className='flex flex-col md:justify-center lg:w-full lg:justify-end'>
                     {/* <h1 className='text-foreground'>{parallaxTextTitle}</h1> */}
 
-                    <p className='mx-auto text-background md:flex md:w-3/4 md:justify-center lg:mt-0 lg:w-1/2'>
+                    <motion.p
+                        className='mx-auto text-background md:flex md:w-3/4 md:justify-center lg:mt-0 lg:w-1/2'
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                    >
                         {parallaxTextParagraph || ''}
-                    </p>
-                    <div className='flex justify-center'>
+                    </motion.p>
+                    <motion.div
+                        className='flex justify-center'
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                    >
                         <Button className='mt-10 px-20' variant='primary' text='Hire Us' onClick={handleOnClick} />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </>

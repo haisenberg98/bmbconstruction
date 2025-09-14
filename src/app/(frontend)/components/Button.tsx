@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 interface ButtonProps {
@@ -32,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({
     };
 
     return (
-        <button
+        <motion.button
             type={type}
             onClick={onClick}
             disabled={disabled}
@@ -40,10 +41,14 @@ const Button: React.FC<ButtonProps> = ({
                 `text-base ${baseClasses} ${variantClasses[variant]} ${className}`,
                 disabled && `cursor-not-allowed opacity-50`,
                 ''
-            )}>
+            )}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
             {icon && <span className='mr-2'>{icon}</span>}
             {text}
-        </button>
+        </motion.button>
     );
 };
 

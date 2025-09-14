@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import { motion } from 'framer-motion';
 //components
 import Button from '@/app/(frontend)/components/Button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/app/(frontend)/components/ui/form';
@@ -88,7 +89,14 @@ const ContactPage = () => {
 
     return (
         <main id='contact-page' className='mb-12 px-4 xl:container md:px-8 xl:mx-auto xl:px-0'>
-            <h1 className='mb-12'>Get In Touch with Us</h1>
+            <motion.h1
+                className='mb-12'
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+                Get In Touch with Us
+            </motion.h1>
 
             <section className='md:container md:mx-auto md:max-w-2xl lg:px-0'>
                 {/* Card wrapper mimicking ProjectCard aesthetic (subtle border, rounded, white bg) */}
@@ -127,15 +135,39 @@ const ContactPage = () => {
             </section>
 
             <section className='mt-12 space-y-6 md:container md:mx-auto md:max-w-2xl lg:max-w-5xl lg:px-0'>
-                <p>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
                     BMB Construction & Services Ltd - Your Auckland construction partner for over 30 years.
                     <br />
                     Ready for your next project? Contact us today for a consultation. One call, one solution for all
                     your building, renovation, and property maintenance needs.
-                </p>
+                </motion.p>
 
-                <div className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'>
-                    <div>
+                <motion.div
+                    className='mt-8 grid grid-cols-1 gap-6 md:grid-cols-2'
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        }
+                    }}
+                >
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
                         <h3 className='mb-3 text-xl font-semibold'>Contact Information</h3>
                         <div className='space-y-2'>
                             <p>
@@ -151,8 +183,14 @@ const ContactPage = () => {
                                 <strong>Service Area:</strong> Auckland Wide
                             </p>
                         </div>
-                    </div>
-                    <div>
+                    </motion.div>
+                    <motion.div
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
                         <h3 className='mb-3 text-xl font-semibold'>Our Services</h3>
                         <ul className='space-y-1 text-gray-700'>
                             <li>• Residential Builds & Renovations</li>
@@ -161,8 +199,8 @@ const ContactPage = () => {
                             <li>• Property Maintenance & Repairs</li>
                             <li>• Insurance Work & Project Management</li>
                         </ul>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
         </main>
     );

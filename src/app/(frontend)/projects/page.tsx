@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import ProjectCard from '@/app/(frontend)/components/ProjectCard';
 import TestimonialSection from '@/app/(frontend)/components/homepage/TestimonialSection';
@@ -26,7 +27,12 @@ export default async function ProjectList() {
             <div className='pt-12'>
                 <div className='mb-6 flex flex-col space-y-4 sm:mb-8 sm:space-y-6'>
                     {/* Title and Back Link */}
-                    <div className='flex items-center justify-between'>
+                    <motion.div
+                        className='flex items-center justify-between'
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
                         <h1 className='text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Projects</h1>
                         <Link
                             href='/'
@@ -45,12 +51,17 @@ export default async function ProjectList() {
                             </svg>
                             Back
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Description */}
-                    <p className='max-w-3xl opacity-80 sm:text-lg md:text-xl'>
+                    <motion.p
+                        className='max-w-3xl opacity-80 sm:text-lg md:text-xl'
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    >
                         Explore our portfolio of completed projects and see the quality of our work. We take pride in our craftsmanship and strive to exceed our clients&apos; expectations with every project.
-                    </p>
+                    </motion.p>
                 </div>
 
                 {/* Mobile and tablet: simple responsive grid */}
@@ -93,10 +104,24 @@ export default async function ProjectList() {
                         {rest.length > 0 && (
                             <div className='mt-16'>
                                 <div className='mb-8 text-center'>
-                                    <h2 className='text-3xl font-bold text-primary md:text-4xl'>More Projects</h2>
-                                    <p className='mt-4 text-lg opacity-80'>
+                                    <motion.h2
+                                        className='text-3xl font-bold text-primary md:text-4xl'
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ duration: 0.6, ease: "easeOut" }}
+                                    >
+                                        More Projects
+                                    </motion.h2>
+                                    <motion.p
+                                        className='mt-4 text-lg opacity-80'
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                                    >
                                         Discover more of our exceptional construction work
-                                    </p>
+                                    </motion.p>
                                 </div>
                                 <div className='grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
                                     {rest.map((project) => (

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import { Project } from '@/payload-types';
 
@@ -18,7 +19,13 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     const firstImage = images && images.length > 0 ? (images[0] as Media) : null;
 
     return (
-        <div className='group relative overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'>
+        <motion.div
+            className='group relative overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            whileHover={{ y: -8 }}>
             {/* Image Container */}
             <div className='relative aspect-[4/3] overflow-hidden'>
                 {firstImage ? (
@@ -71,7 +78,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

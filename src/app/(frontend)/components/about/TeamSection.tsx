@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { motion } from 'framer-motion';
 import DirectorCard from '@/app/(frontend)/components/about/DirectorCard';
 
 const TeamSection = () => {
@@ -7,11 +8,25 @@ const TeamSection = () => {
         <section className='py-24'>
             {/* Section Header */}
             <div className='mb-16 text-center'>
-                <h1 className='mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Meet Our Team</h1>
-                <p className='mx-auto max-w-3xl text-lg md:text-xl'>
+                <motion.h1
+                    className='mb-6 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    Meet Our Team
+                </motion.h1>
+                <motion.p
+                    className='mx-auto max-w-3xl text-lg md:text-xl'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                >
                     The dedicated professionals behind every successful project, bringing decades of experience and
                     passion to your construction needs.
-                </p>
+                </motion.p>
             </div>
 
             {/* Team Member */}

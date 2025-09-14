@@ -6,6 +6,7 @@ import React from 'react';
 import SliderWrapper from '@/app/(frontend)/components/SliderWrapper';
 import TestimonialCard from '@/app/(frontend)/components/projects/TestimonialCard';
 import { Testimonial } from '@/payload-types';
+import { motion } from 'framer-motion';
 
 // eslint-disable-next-line import/named
 import { PaginatedDocs } from 'payload';
@@ -17,10 +18,24 @@ const TestimonialSliders = ({ testimonials }: { testimonials: PaginatedDocs<Test
         <section className='py-24'>
             {/* Section Header */}
             <div className='mb-12 text-center'>
-                <h2 className='mb-4 text-3xl font-bold text-primary md:text-4xl'>Client Testimonials</h2>
-                <p className='mx-auto max-w-xl'>
+                <motion.h2
+                    className='mb-4 text-3xl font-bold text-primary md:text-4xl'
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    Client Testimonials
+                </motion.h2>
+                <motion.p
+                    className='mx-auto max-w-xl'
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                >
                     Hear what our satisfied clients have to say about their experience working with us.
-                </p>
+                </motion.p>
             </div>
 
             {/* Testimonials */}
