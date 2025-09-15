@@ -22,8 +22,8 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     return (
         <motion.div
             className='group relative overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{
                 duration: 0.8,

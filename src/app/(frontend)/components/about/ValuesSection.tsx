@@ -52,8 +52,8 @@ export default function ValuesSection() {
                     <motion.div
                         key={index}
                         className='group rounded-lg border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-gray-200'
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true, amount: 0.2 }}
                         transition={{
                             duration: 0.8,
