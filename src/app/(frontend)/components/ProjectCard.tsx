@@ -16,7 +16,6 @@ interface Media {
 }
 
 const Card = ({ slug, title, buildingType, images }: Project) => {
-    const [loaded, setLoaded] = useState(false);
     const firstImage = images && images.length > 0 ? (images[0] as Media) : null;
 
     return (
@@ -44,8 +43,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                             alt={firstImage.alt || 'Project Image'}
                             width={1000}
                             height={750}
-                            className={`size-full object-cover transition-all duration-500 ease-in-out ${loaded ? 'scale-100' : 'scale-110'} group-hover:scale-110`}
-                            onLoad={() => setLoaded(true)}
+                            className="size-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                             priority={false}
                         />
                         {/* Thin dark overlay */}
