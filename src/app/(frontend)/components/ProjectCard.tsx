@@ -22,11 +22,19 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     return (
         <motion.div
             className='group relative overflow-hidden rounded-lg bg-white shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            whileHover={{ y: -8 }}>
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94],
+                delay: 0.1
+            }}
+            // whileHover={{
+            //     scale: 1.02,
+            //     transition: { duration: 0.3, ease: "easeOut" }
+            // }}
+        >
             {/* Image Container */}
             <div className='relative aspect-[4/3] overflow-hidden'>
                 {firstImage ? (

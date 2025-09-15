@@ -11,10 +11,10 @@ import { getPayload } from 'payload';
 
 const mapImages = (images: (string | Media)[] = []) => {
     return images
-        .filter((data): data is Media => typeof data !== 'string' && data.filename !== undefined) // Ensure it's a Media object
+        .filter((data): data is Media => typeof data !== 'string' && data.url !== undefined) // Ensure it's a Media object with url
         .map((data, id) => ({
             key: id,
-            src: data.filename || '/placeholder-image.jpg', // Fallback to a placeholder image if filename is undefined
+            src: data.url || '/placeholder-image.jpg', // Use the full URL instead of filename
             alt: data.alt || 'Project Image', // Use the alt text, or a fallback
             width: data.width || 400,
             height: data.height || 300
@@ -56,7 +56,7 @@ export default async function ProjectDetails({ params }: PageProps) {
 
     return (
         <main id='project-details' className='py-6'>
-            <div className='overflow-hidden shadow-lg'>
+            <div className='overflow-hidden'>
                 <div className='container mx-auto px-4'>
                     <Link
                         href='/projects'
@@ -82,13 +82,13 @@ export default async function ProjectDetails({ params }: PageProps) {
                     </div>
 
                     {(project.keyFacts || []).length > 0 && (
-                        <div className='mb-12'>
-                            <h2 className='mb-2 text-lg font-semibold'>Key Facts</h2>
-                            <div className='space-y-1'>
+                        <div className='mb-12 rounded-lg border border-gray-100 bg-white p-6'>
+                            <h2 className='mb-4 text-lg font-semibold text-primary'>Key Facts</h2>
+                            <div className='space-y-3'>
                                 {(project.keyFacts || []).map((fact, id) => (
-                                    <ul key={id} className='flex list-none'>
-                                        <li className='w-full bg-secondary p-3'>{fact?.fact}</li>
-                                    </ul>
+                                    <div key={id} className='flex items-start gap-3'>
+                                        <p className='leading-relaxed text-gray-700'>{fact?.fact}</p>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -102,14 +102,19 @@ export default async function ProjectDetails({ params }: PageProps) {
                 </div>
 
                 {testimonials.length > 0 && (
-                    <div className='mt-12'>
-                        <section className='mt-4 grid grid-cols-1 gap-8 md:grid-cols-2'>
-                            {testimonials.map((testimonial, id) => (
-                                <div key={id}>
-                                    <TestimonialCard {...testimonial.testimonial} />
-                                </div>
-                            ))}
-                        </section>
+                    <div className='my-8'>
+                        <div className='container mx-auto px-4'>
+                            <h2 className='mb-6 text-center text-2xl font-bold text-primary md:text-3xl'>
+                                Client Testimonials
+                            </h2>
+                            <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6'>
+                                {testimonials.map((testimonial, id) => (
+                                    <div key={id} className='h-full'>
+                                        <TestimonialCard {...testimonial.testimonial} />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 )}
             </div>

@@ -23,19 +23,19 @@ const ProjectGallery = ({ imageComponents }: { imageComponents: ImageComponent[]
             {imageComponents.map(({ key, src, alt, width, height }) => (
                 <Item
                     key={key}
-                    original={`https://storage.googleapis.com/high-end-builder-bucket-new/${src}`}
-                    thumbnail={`https://storage.googleapis.com/high-end-builder-bucket-new/${src}`}
+                    original={src}
+                    thumbnail={src}
                     width={width}
                     height={height}>
                     {({ ref, open }) => (
                         <Image
                             ref={ref}
                             onClick={open}
-                            src={`https://storage.googleapis.com/high-end-builder-bucket-new/${src}`}
+                            src={src}
                             alt={alt}
                             width={width}
                             height={height}
-                            className='h-auto cursor-pointer object-cover'
+                            className='h-auto cursor-pointer object-cover rounded-lg transition-transform duration-300 hover:scale-105'
                         />
                     )}
                 </Item>

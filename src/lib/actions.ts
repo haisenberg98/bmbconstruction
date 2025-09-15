@@ -10,7 +10,17 @@ import { EmailTemplate } from '@/app/(frontend)/components/EmailTemplate';
 // ✅ Infer the form type here (do NOT import types from a page/client file)
 export type ContactFormFields = z.infer<typeof contactFormSchema>;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend client lazily to avoid module evaluation issues
+function getResendClient() {
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+
+    if (!RESEND_API_KEY) {
+        console.error('RESEND_API_KEY is not set in environment variables');
+        throw new Error('Email service configuration error');
+    }
+
+    return new Resend(RESEND_API_KEY);
+}
 
 //server side validation
 function validateData(data: ContactFormFields) {
@@ -71,6 +81,7 @@ export async function handleContactUsFormSubmit(formData: ContactFormFields) {
         return validationResult;
     }
 
+    const resend = getResendClient();
     const { data, error } = await resend.emails.send({
         from: 'High End Builder Customer <don@highendbuilder.co.nz>',
         to: ['don@highendbuilder.co.nz'],

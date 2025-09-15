@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
+
 import Link from 'next/link';
+
 import { motion } from 'framer-motion';
 
 const ProjectsHeader = () => {
@@ -13,7 +15,7 @@ const ProjectsHeader = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}>
-                <h1 className='text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Projects</h1>
+                <h1 className='mb-0 text-4xl font-bold text-primary md:text-5xl lg:text-6xl'>Our Projects</h1>
                 <Link
                     href='/'
                     className='group inline-flex items-center text-lg font-semibold underline-offset-4 hover:underline hover:opacity-80'>
@@ -39,8 +41,8 @@ const ProjectsHeader = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}>
-                Explore our portfolio of completed projects and see the quality of our work. We take pride in
-                our craftsmanship and strive to exceed our clients&apos; expectations with every project.
+                Explore our portfolio of completed projects and see the quality of our work. We take pride in our
+                craftsmanship and strive to exceed our clients&apos; expectations with every project.
             </motion.p>
         </div>
     );

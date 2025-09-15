@@ -6,8 +6,8 @@ import React from 'react';
 import SliderWrapper from '@/app/(frontend)/components/SliderWrapper';
 import TestimonialCard from '@/app/(frontend)/components/projects/TestimonialCard';
 import { Testimonial } from '@/payload-types';
-import { motion } from 'framer-motion';
 
+import { motion } from 'framer-motion';
 // eslint-disable-next-line import/named
 import { PaginatedDocs } from 'payload';
 import { FaCaretLeft, FaCaretRight } from 'react-icons/fa';
@@ -23,8 +23,7 @@ const TestimonialSliders = ({ testimonials }: { testimonials: PaginatedDocs<Test
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                    transition={{ duration: 0.6, ease: 'easeOut' }}>
                     Client Testimonials
                 </motion.h2>
                 <motion.p
@@ -32,8 +31,7 @@ const TestimonialSliders = ({ testimonials }: { testimonials: PaginatedDocs<Test
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                >
+                    transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}>
                     Hear what our satisfied clients have to say about their experience working with us.
                 </motion.p>
             </div>
@@ -56,7 +54,7 @@ const TestimonialSliders = ({ testimonials }: { testimonials: PaginatedDocs<Test
                 </SliderWrapper>
 
                 {/* Navigation */}
-                <div className='absolute -bottom-8 right-8 z-10 flex items-center gap-2'>
+                <div className='absolute -bottom-12 right-8 z-10 flex items-center gap-2'>
                     <button className='swiper-prev swiper-custom-navigation flex size-10 items-center justify-center rounded-full border border-gray-200 bg-white shadow-md transition-colors hover:bg-gray-50'>
                         <FaCaretLeft className='text-primary' />
                     </button>
