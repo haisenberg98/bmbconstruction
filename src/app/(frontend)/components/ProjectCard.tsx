@@ -26,8 +26,8 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{
-                duration: 0.8,
-                ease: [0.25, 0.46, 0.45, 0.94],
+                duration: 0.6,
+                ease: "easeOut",
                 delay: 0.1
             }}
             // whileHover={{
