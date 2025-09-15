@@ -39,7 +39,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                             alt={firstImage.alt || 'Project Image'}
                             width={1000}
                             height={750}
-                            className="size-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
+                            className='size-full object-cover group-hover:scale-110'
                             priority={false}
                         />
                         {/* Gradient overlay */}
