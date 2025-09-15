@@ -44,7 +44,7 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                             alt={firstImage.alt || 'Project Image'}
                             width={1000}
                             height={750}
-                            className={`size-full object-cover transition-all duration-700 ease-out ${loaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'} group-hover:scale-110`}
+                            className={`size-full object-cover transition-all duration-700 ease-out ${loaded ? 'scale-100' : 'scale-110'} group-hover:scale-110`}
                             onLoad={() => setLoaded(true)}
                             priority={false}
                         />
