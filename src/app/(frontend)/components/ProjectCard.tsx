@@ -21,14 +21,10 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
     return (
         <motion.div
             className='group relative overflow-hidden rounded-lg shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-black/10'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: 0.1
-            }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             // whileHover={{
             //     scale: 1.02,
             //     transition: { duration: 0.3, ease: "easeOut" }
@@ -46,8 +42,6 @@ const Card = ({ slug, title, buildingType, images }: Project) => {
                             className="size-full object-cover transition-transform duration-300 ease-out group-hover:scale-110"
                             priority={false}
                         />
-                        {/* Thin dark overlay */}
-                        <div className='absolute inset-0 bg-black/20'></div>
                         {/* Gradient overlay */}
                         <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100' />
                     </Link>
