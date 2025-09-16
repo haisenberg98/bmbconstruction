@@ -35,7 +35,7 @@ const ProjectGallery = ({ imageComponents }: { imageComponents: ImageComponent[]
                             alt={alt}
                             width={width}
                             height={height}
-                            className='h-auto cursor-pointer object-cover rounded-lg transition-transform duration-300 hover:scale-105'
+                            className='h-auto cursor-pointer rounded-lg object-cover transition-transform duration-300 hover:scale-105'
                         />
                     )}
                 </Item>

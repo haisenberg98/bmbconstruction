@@ -55,69 +55,67 @@ export default async function ProjectDetails({ params }: PageProps) {
     const imageComponents = mapImages(project.images || []);
 
     return (
-        <main id='project-details' className='py-6'>
-            <div className='overflow-hidden'>
-                <div className='container mx-auto px-4'>
-                    <Link
-                        href='/projects'
-                        className='group mb-4 inline-flex items-center text-lg font-semibold underline-offset-4 hover:underline hover:opacity-80'>
-                        <svg
-                            className='mr-2 size-4 transform transition-transform duration-200 group-hover:-translate-x-1'
-                            fill='none'
-                            viewBox='0 0 24 24'
-                            stroke='currentColor'>
-                            <path
-                                strokeLinecap='round'
-                                strokeLinejoin='round'
-                                strokeWidth={2}
-                                d='M10 19l-7-7m0 0l7-7m-7 7h18'
-                            />
-                        </svg>
-                        Back to Projects
-                    </Link>
-                    <h1 className='mb-4 mt-12 text-3xl font-bold'>{project.title}</h1>
+        <main id='project-details' className='mb-12 px-4 xl:container md:px-8 lg:px-12 xl:mx-auto xl:px-0'>
+            <div>
+                <Link
+                    href='/projects'
+                    className='group mb-4 inline-flex items-center text-lg font-semibold underline-offset-4 hover:underline hover:opacity-80'>
+                    <svg
+                        className='mr-2 size-4 transform transition-transform duration-200 group-hover:-translate-x-1'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke='currentColor'>
+                        <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M10 19l-7-7m0 0l7-7m-7 7h18'
+                        />
+                    </svg>
+                    Back to Projects
+                </Link>
+                <h1 className='mb-4 mt-12 text-3xl font-bold'>{project.title}</h1>
 
-                    <div className='mb-12'>
-                        <p>{project.description}</p>
-                    </div>
-
-                    {(project.keyFacts || []).length > 0 && (
-                        <div className='mb-12 rounded-lg border border-gray-100 bg-white p-6'>
-                            <h2 className='mb-4 text-lg font-semibold text-primary'>Key Facts</h2>
-                            <div className='space-y-3'>
-                                {(project.keyFacts || []).map((fact, id) => (
-                                    <div key={id} className='flex items-start gap-3'>
-                                        <p className='leading-relaxed text-gray-700'>{fact?.fact}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-
-                    <div className='container mb-6'>
-                        <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
-                            <ProjectGallery imageComponents={imageComponents} />
-                        </div>
-                    </div>
+                <div className='mb-12'>
+                    <p>{project.description}</p>
                 </div>
 
-                {testimonials.length > 0 && (
-                    <div className='my-8'>
-                        <div className='container mx-auto px-4'>
-                            <h2 className='mb-6 text-center text-2xl font-bold text-primary md:text-3xl'>
-                                Client Testimonials
-                            </h2>
-                            <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6'>
-                                {testimonials.map((testimonial, id) => (
-                                    <div key={id} className='h-full'>
-                                        <TestimonialCard {...testimonial.testimonial} />
-                                    </div>
-                                ))}
-                            </div>
+                {(project.keyFacts || []).length > 0 && (
+                    <div className='mb-12 rounded-lg border border-gray-100 bg-white p-6'>
+                        <h2 className='mb-4 text-lg font-semibold text-primary'>Key Facts</h2>
+                        <div className='space-y-3'>
+                            {(project.keyFacts || []).map((fact, id) => (
+                                <div key={id} className='flex items-start gap-3'>
+                                    <p className='leading-relaxed text-gray-700'>{fact?.fact}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 )}
+
+                <div className='container mb-6'>
+                    <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+                        <ProjectGallery imageComponents={imageComponents} />
+                    </div>
+                </div>
             </div>
+
+            {testimonials.length > 0 && (
+                <div className='my-8'>
+                    <div className='container mx-auto px-4'>
+                        <h2 className='mb-6 text-center text-2xl font-bold text-primary md:text-3xl'>
+                            Client Testimonials
+                        </h2>
+                        <div className='grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6'>
+                            {testimonials.map((testimonial, id) => (
+                                <div key={id} className='h-full'>
+                                    <TestimonialCard {...testimonial.testimonial} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }
