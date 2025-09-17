@@ -102,7 +102,7 @@ export default async function ProjectDetails({ params }: PageProps) {
 
             {testimonials.length > 0 && (
                 <div className='my-8'>
-                    <div className='container mx-auto px-4'>
+                    <div className='container mx-auto'>
                         <h2 className='mb-6 text-center text-2xl font-bold text-primary md:text-3xl'>
                             Client Testimonials
                         </h2>
