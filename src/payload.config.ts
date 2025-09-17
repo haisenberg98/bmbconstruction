@@ -7,6 +7,7 @@ import { gcsStorage } from '@payloadcms/storage-gcs';
 import { Media } from './collections/Media';
 import { MediaWithPrefix } from './collections/MediaWithPrefix';
 import { Projects } from './collections/Projects';
+import { Services } from './collections/Services';
 import { Testimonials } from './collections/Testimonials';
 import { Users } from './collections/Users';
 import { mediaSlug, mediaWithPrefixSlug, prefix } from './shared';
@@ -26,7 +27,7 @@ export default buildConfig({
             baseDir: path.resolve(dirname)
         }
     },
-    collections: [Users, Media, Projects, Testimonials, MediaWithPrefix],
+    collections: [Users, Media, Projects, Services, Testimonials, MediaWithPrefix],
     editor: lexicalEditor(),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {

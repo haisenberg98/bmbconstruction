@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     projects: Project;
+    services: Service;
     testimonials: Testimonial;
     'media-with-prefix': MediaWithPrefix;
     'payload-locked-documents': PayloadLockedDocument;
@@ -81,6 +82,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'media-with-prefix': MediaWithPrefixSelect<false> | MediaWithPrefixSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -203,6 +205,32 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: string;
+  title: string;
+  description?: string | null;
+  slug?: string | null;
+  serviceType: string;
+  keyFeatures?:
+    | {
+        feature?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  testimonials?:
+    | {
+        testimonial?: (string | null) | Testimonial;
+        id?: string | null;
+      }[]
+    | null;
+  images: (string | Media)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media-with-prefix".
  */
 export interface MediaWithPrefix {
@@ -238,6 +266,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: string | Project;
+      } | null)
+    | ({
+        relationTo: 'services';
+        value: string | Service;
       } | null)
     | ({
         relationTo: 'testimonials';
@@ -342,6 +374,31 @@ export interface ProjectsSelect<T extends boolean = true> {
     | T
     | {
         fact?: T;
+        id?: T;
+      };
+  testimonials?:
+    | T
+    | {
+        testimonial?: T;
+        id?: T;
+      };
+  images?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  slug?: T;
+  serviceType?: T;
+  keyFeatures?:
+    | T
+    | {
+        feature?: T;
         id?: T;
       };
   testimonials?:
