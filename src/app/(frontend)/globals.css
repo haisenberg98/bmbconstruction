@@ -106,7 +106,7 @@
 .hamburger-btn.open span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
     width: 30px;
-    background-color: white;
+    background-color: var(--foreground);
 }
 
 .hamburger-btn.open span:nth-child(2) {
@@ -117,7 +117,7 @@
 .hamburger-btn.open span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
     width: 30px;
-    background-color: white;
+    background-color: var(--foreground);
 }
 
 /**
@@ -220,7 +220,7 @@
     transform: translateX(100%) translateY(-100%);
 }
 .menu:after {
-    background: var(--foreground);
+    background: var(--background);
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
 }
