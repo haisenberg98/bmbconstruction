@@ -23,10 +23,10 @@ const NavMenuContent = () => {
                 <ul className='flex flex-col items-center justify-center space-y-8 text-3xl'>
                     <li>
                         <Link
-                            href='/projects'
+                            href='/services'
                             className='py-2 text-3xl hover:underline hover:underline-offset-4'
                             onClick={handleLinkClick}>
-                            Projects
+                            Services
                         </Link>
                     </li>
                     <li>

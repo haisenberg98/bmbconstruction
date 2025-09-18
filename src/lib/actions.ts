@@ -1,11 +1,12 @@
-import { z } from 'zod';
 import type { ReactElement } from 'react';
-import { Resend } from 'resend';
 
-// Use the same schema on server for validation and type inference
-import { contactFormSchema } from '@/lib/schema';
 // Make sure this template is SERVER-SAFE (no hooks, no "use client")
 import { EmailTemplate } from '@/app/(frontend)/components/EmailTemplate';
+// Use the same schema on server for validation and type inference
+import { contactFormSchema } from '@/lib/schema';
+
+import { Resend } from 'resend';
+import { z } from 'zod';
 
 // ✅ Infer the form type here (do NOT import types from a page/client file)
 export type ContactFormFields = z.infer<typeof contactFormSchema>;
@@ -83,8 +84,8 @@ export async function handleContactUsFormSubmit(formData: ContactFormFields) {
 
     const resend = getResendClient();
     const { data, error } = await resend.emails.send({
-        from: 'High End Builder Customer <don@highendbuilder.co.nz>',
-        to: ['don@highendbuilder.co.nz'],
+        from: 'BMB Construction Customer <johnny@bmbconstruction.co.nz>',
+        to: ['johnny@bmbconstruction.co.nz'],
         subject: 'Customer Inquiry',
         react: EmailTemplate({ formData }) as React.ReactElement
     });

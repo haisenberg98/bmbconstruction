@@ -38,8 +38,8 @@ export default function Footer() {
                     <nav className='my-6'>
                         <ul className='flex flex-col space-y-2 text-lg font-bold'>
                             <li>
-                                <Link href='/projects' className='hover:underline hover:underline-offset-4'>
-                                    Projects
+                                <Link href='/services' className='hover:underline hover:underline-offset-4'>
+                                    Services
                                 </Link>
                             </li>
                             <li>

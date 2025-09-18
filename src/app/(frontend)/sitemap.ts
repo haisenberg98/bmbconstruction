@@ -8,19 +8,19 @@ export default async function sitemap() {
     // Initialize Payload
     const payload = await getPayload({ config });
 
-    // Fetch projects
-    const projects = await payload.find({
-        collection: 'projects',
+    // Fetch services
+    const services = await payload.find({
+        collection: 'services',
         depth: 2,
         pagination: false,
         sort: '-created_at'
     });
 
-    // Generate project URLs
-    const projectPages =
-        projects.docs?.map((project) => ({
-            url: `${baseUrl}/projects/${project.slug}`,
-            lastModified: project.updatedAt,
+    // Generate service URLs
+    const servicePages =
+        services.docs?.map((service) => ({
+            url: `${baseUrl}/services/${service.slug}`,
+            lastModified: service.updatedAt,
             priority: 0.8
         })) || [];
 
@@ -41,6 +41,6 @@ export default async function sitemap() {
             lastModified: new Date(),
             priority: 0.9
         },
-        ...projectPages
+        ...servicePages
     ];
 }
