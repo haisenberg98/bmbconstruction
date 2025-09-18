@@ -14,7 +14,7 @@ export default async function ServiceList() {
         collection: 'services',
         depth: 2,
         pagination: false,
-        sort: '-created_at'
+        sort: 'createdAt'
     });
 
     // Group services into sets of 3 for the repeating pattern

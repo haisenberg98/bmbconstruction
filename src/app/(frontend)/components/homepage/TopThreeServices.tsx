@@ -16,7 +16,7 @@ const ServicesSection = async () => {
         limit: 3,
         pagination: false,
         where: {},
-        sort: '-created_at'
+        sort: 'createdAt'
     });
 
     return (
