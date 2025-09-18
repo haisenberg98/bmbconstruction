@@ -75,7 +75,7 @@ const SliderWrapper = ({
                 nextEl: '.swiper-next'
             }}
             modules={[Pagination, Navigation, Autoplay]}
-            className='mySwiper'>
+            className='mySwiper [&_.swiper-slide]:h-auto [&_.swiper-wrapper]:items-stretch'>
             {children}
         </Swiper>
     );
