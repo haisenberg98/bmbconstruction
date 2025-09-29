@@ -31,9 +31,8 @@ const TopThreeServiceItems = ({ services }: { services: PaginatedDocs<Service> }
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <h1>Services</h1>
+                        transition={{ duration: 0.6, ease: 'easeOut' }}>
+                        <h1 className='mb-0'>Services</h1>
                         <Link
                             href='/services'
                             className='group inline-flex items-center text-lg font-semibold underline-offset-4 hover:underline hover:opacity-80'>
@@ -59,9 +58,9 @@ const TopThreeServiceItems = ({ services }: { services: PaginatedDocs<Service> }
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    >
-                        These are the services we offer. We are proud of our expertise and the quality solutions we provide to our clients.
+                        transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}>
+                        These are the services we offer. We are proud of our expertise and the quality solutions we
+                        provide to our clients.
                     </motion.p>
                 </div>
 
