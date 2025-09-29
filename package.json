@@ -73,5 +73,17 @@
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.7.2",
         "typescript-eslint": "^8.17.0"
-    }
+    },
+    "description": "*This is the Tailwind version for Next.js 15 Starter, you may be interested in other templates too -*\r - [**Next.js 15 Starter Core**](https://github.com/SiddharthaMaity/nextjs-15-starter-core)\r - [**Next.js 15 Starter with Shadcn UI**](https://github.com/SiddharthaMaity/nextjs-15-starter-shadcn)",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/haisenberg98/bmbconstruction.git"
+    },
+    "keywords": [],
+    "author": "",
+    "bugs": {
+        "url": "https://github.com/haisenberg98/bmbconstruction/issues"
+    },
+    "homepage": "https://github.com/haisenberg98/bmbconstruction#readme"
 }
