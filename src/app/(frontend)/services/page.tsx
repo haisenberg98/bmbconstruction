@@ -39,7 +39,9 @@ export default async function ServiceList() {
             {/* Desktop: repeat the same layout pattern for all services */}
             <div className='hidden md:grid md:gap-12 lg:gap-16'>
                 {groupedServices.map((group, groupIndex) => (
-                    <div key={groupIndex} className={`space-y-12 lg:space-y-16 ${groupIndex > 0 ? 'mt-16 lg:mt-20' : ''}`}>
+                    <div
+                        key={groupIndex}
+                        className={`space-y-12 lg:space-y-16 ${groupIndex > 0 ? 'mt-16 lg:mt-20' : ''}`}>
                         {/* First item centered */}
                         {group[0] && (
                             <div className='grid-cols-12 gap-12 md:grid lg:gap-16'>
