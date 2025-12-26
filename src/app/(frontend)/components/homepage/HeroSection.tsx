@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 //components
 import ParallaxSection from '@/app/(frontend)/components/ParallaxSection';
@@ -9,13 +9,6 @@ import { parallaxImages } from '@/lib/data';
 
 const HeroSection = () => {
     const parallaxRef = useRef<HTMLDivElement | null>(null);
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    if (!isClient) return null; // Render nothing on the server
 
     return (
         <section id='hero'>

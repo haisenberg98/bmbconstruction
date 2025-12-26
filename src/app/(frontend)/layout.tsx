@@ -46,7 +46,7 @@ export default function Layout({ children }: Readonly<{ children: ReactNode }>) 
   return (
     <html suppressHydrationWarning lang="en">
       <head />
-      <body className={`${inter.variable} ${montserrat.variable} bg-background text-foreground antialiased`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${montserrat.variable} bg-background text-foreground antialiased`}>
         <Header />
         {children}
         <Footer />

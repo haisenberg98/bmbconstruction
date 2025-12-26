@@ -13,7 +13,6 @@ import { ParallaxSectionProps } from '@/lib/types';
 
 //gsap
 import gsap from 'gsap';
-import { isMobile } from 'react-device-detect';
 
 const ParallaxSection = ({
     parallaxImage,
@@ -22,6 +21,12 @@ const ParallaxSection = ({
     parallaxTextParagraph
 }: ParallaxSectionProps) => {
     const router = useRouter();
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Detect mobile on client side
+        setIsMobile(window.innerWidth < 768);
+    }, []);
 
     useEffect(() => {
         if (isMobile) {
@@ -34,7 +39,7 @@ const ParallaxSection = ({
 
             return () => ctx.revert();
         }
-    }, [parallaxRef]);
+    }, [parallaxRef, isMobile]);
 
     const backgroundImageStyle = {
         backgroundImage: `url(${parallaxImage})`
